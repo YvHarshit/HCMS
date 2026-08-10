@@ -59,7 +59,7 @@ export function PatientSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton>
-              <Link href="/patient/support"  className="flex items-center gap-3">
+              <Link href="/support"  className="flex items-center gap-3">
                 <HelpOutlineRounded fontSize="medium" />
                 <span className="text-lg">  Support </span>
               </Link>

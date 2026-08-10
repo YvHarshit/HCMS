@@ -6,7 +6,7 @@ import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
 import SearchIcon from "@mui/icons-material/Search";
 
-export default function AdminNavbar() {
+export default function HospitalAdminNavbar() {
   return (
     <header className="sticky top-0  h-20  bg-white/80 backdrop-blur-md">
       <div className="flex h-full items-center justify-between px-6">

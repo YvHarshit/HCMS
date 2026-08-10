@@ -1,13 +1,11 @@
 "use client"
 import MedicineTracker from "@/components/patient/MedicineTracker";
 import PatientCard from "@/components/patient/PatientCard";
-import PatientNavbar from "@/components/patient/PatientNavbar";
 import RecentActivity from "@/components/patient/RecentActivity";
 
 export default function PatientDashboard()  {
   return (
     <div>
-      <div> <PatientNavbar/> </div>
 
     <div className="flex mt-5 px-12">
       <div className="flex-1">

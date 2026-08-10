@@ -86,7 +86,7 @@ export function DoctorSidebar() {
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton>
-              <Link href="/doctor/support" className="flex items-center gap-3">
+              <Link href="/support" className="flex items-center gap-3">
                 <HelpOutlineRoundedIcon fontSize="medium" />
                  <span className="text-lg"> Support </span>
               </Link>

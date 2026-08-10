@@ -1,7 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import {Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem} from "@/components/ui/sidebar";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+} from "@/components/ui/sidebar";
 
 import LocalHospitalRoundedIcon from "@mui/icons-material/LocalHospitalRounded";
 import HelpOutlineRoundedIcon from "@mui/icons-material/HelpOutlineRounded";
@@ -27,7 +37,6 @@ export function DashboardSidebar({
 }: DashboardSidebarProps) {
   return (
     <Sidebar>
-     
       <SidebarHeader className="border-b px-5 py-6">
         <div className="flex items-center gap-3">
           <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-blue-100 text-blue-600">
@@ -53,7 +62,11 @@ export function DashboardSidebar({
               {menuItems.map((item) => (
                 <SidebarMenuItem key={item.url}>
                   <SidebarMenuButton
-                    className={`h-14 rounded-xl`}>
+                    className={`h-14 rounded-xl ${
+                      activeUrl === item.url
+                        ? "bg-blue-100 text-blue-700 hover:bg-blue-100"
+                        : "text-gray-600 hover:bg-gray-100"}`
+                      }>
                     <Link href={item.url} className="flex items-center gap-3  text-lg">
                       <item.icon />
                       <span>{item.title}</span>
@@ -66,7 +79,6 @@ export function DashboardSidebar({
         </SidebarGroup>
       </SidebarContent>
 
- 
       <SidebarFooter className="border-t px-3 py-10">
         <SidebarMenu>
           <SidebarMenuItem>
@@ -81,8 +93,7 @@ export function DashboardSidebar({
           <SidebarMenuItem>
             <SidebarMenuButton
               onClick={onLogout}
-              className="text-red-500 hover:bg-red-50 text-lg"
-            >
+              className="text-red-500 hover:bg-red-50 text-lg">
               <LogoutRoundedIcon />
               Logout
             </SidebarMenuButton>

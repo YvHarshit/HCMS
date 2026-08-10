@@ -1,11 +1,9 @@
 import AdminCards from "@/components/hospitalAdmin/hospitalAdminCard";
 import AdminApplications from "@/components/hospitalAdmin/hospitalAdminHero";
-import AdminNavbar from "@/components/hospitalAdmin/hospitalAdminNavbar";
 
 export default function Page() {
   return (
     <div>
-        <div> <AdminNavbar/> </div>
 
         <div className="px-12 mt-5 flex justify-between items-center"> 
           <div>
