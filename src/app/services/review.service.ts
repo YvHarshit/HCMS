@@ -1,24 +1,27 @@
-import { createReview, findReviewByAppointment } from "../repositories/review.repository";
-import { CreateReviewData } from "../types/review.types";
+import Doctor from "@/models/Doctor";
+import { createReview, findReviewByAppointment, getAllReviewsRepository } from "../repositories/review.repository";
 
-export async function registerReview(data: CreateReviewData) {
-  // Check if review already exists
-  const existingReview = await findReviewByAppointment(
-    data.appointmentId.toString()
-  );
 
-  if (existingReview) {
-    throw new Error(
-      "Review has already been submitted for this appointment"
-    );
-  }
-
-  // Validate rating
-  if (data.rating < 1 || data.rating > 5) {
-    throw new Error("Rating must be between 1 and 5");
-  }
-
+export async function registerReview(data: {doctorId: string; patientId: string; appointmentId: string; rating: number; comment?: string;}) {
+  
   const review = await createReview(data);
 
+  // Find doctor
+  const doctor = await Doctor.findById(data.doctorId);
+
+  if (!doctor) throw new Error("Doctor not found") 
+  // Calculate new average rating
+  const newTotalReviews = doctor.totalReviews + 1;
+
+  const newRating = (doctor.rating * doctor.totalReviews + data.rating) / newTotalReviews;
+
+  // Update doctor
+  doctor.rating = Number(newRating.toFixed(2));
+  doctor.totalReviews = newTotalReviews;
+  await doctor.save();
   return review;
+}
+
+export async function getReviews() {
+  return getAllReviewsRepository();
 }

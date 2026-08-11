@@ -1,4 +1,4 @@
-import { createDoctor, findDoctorByEmail, getAllDoctors, getDoctorByIdRepository } from "../repositories/doctor.repository";
+import { createDoctor, findDoctorByEmail, getAllDoctors, getDoctorByIdRepository, updateDoctorStatusRepository } from "../repositories/doctor.repository";
 import bcrypt from "bcryptjs";
 import {CreateDoctorData} from "../types/doctor.types";
 
@@ -41,4 +41,11 @@ export async function getDoctorById(id: string) {
   const doctor = await getDoctorByIdRepository(id);
 
   return doctor;
+}
+
+
+
+
+export async function updateDoctorStatus(id: string, status: "approved" | "rejected") {
+  return updateDoctorStatusRepository(id, status);
 }

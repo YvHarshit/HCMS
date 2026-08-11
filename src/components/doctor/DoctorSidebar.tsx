@@ -52,10 +52,10 @@ export function DoctorSidebar() {
           </div>
         </div>
 
-        <button className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 py-3 text-white transition hover:bg-blue-700">
+        {/* <button className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 py-3 text-white transition hover:bg-blue-700">
           <AddRoundedIcon fontSize="medium" />
           New Consultation
-        </button>
+        </button> */}
       </SidebarHeader>
 
      

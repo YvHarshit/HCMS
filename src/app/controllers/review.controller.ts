@@ -1,31 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
-import { registerReview } from "../services/review.service";
+import { getReviews, registerReview } from "../services/review.service";
 
-export async function createReviewController(
-  req: NextRequest
-) {
+
+export async function createReviewController(req: NextRequest) {
   try {
     const body = await req.json();
+    const {doctorId, patientId, appointmentId, rating, comment} = body;
 
-    const {
-      doctorId,
-      patientId,
-      appointmentId,
-      rating,
-      comment,
-    } = body;
-
-    if (
-      !doctorId ||
-      !patientId ||
-      !appointmentId ||
-      rating === undefined
-    ) {
+    if (!doctorId || !patientId || !appointmentId || rating === undefined) {
       return NextResponse.json(
         {
           success: false,
-          message:
-            "Doctor, patient, appointment and rating are required",
+          message: "Doctor, patient, appointment and rating are required",
         },
         { status: 400 }
       );
@@ -41,13 +27,7 @@ export async function createReviewController(
       );
     }
 
-    const review = await registerReview({
-      doctorId,
-      patientId,
-      appointmentId,
-      rating,
-      comment,
-    });
+    const review = await registerReview({doctorId, patientId, appointmentId, rating, comment});
 
     return NextResponse.json(
       {
@@ -67,6 +47,31 @@ export async function createReviewController(
           error instanceof Error
             ? error.message
             : "Failed to create review",
+      },
+      { status: 500 }
+    );
+  }
+}
+
+
+export async function getReviewsController(req: NextRequest) {
+  try {
+    const reviews = await getReviews();
+
+    return NextResponse.json(
+      {
+        success: true,
+        data: reviews,
+      },
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error("Get Reviews Error:", error);
+
+    return NextResponse.json(
+      {
+        success: false,
+        message: "Failed to fetch reviews",
       },
       { status: 500 }
     );

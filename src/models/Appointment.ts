@@ -1,9 +1,6 @@
 import mongoose, { Document, Model, Schema } from "mongoose";
 
-export type AppointmentStatus =
-  | "confirmed"
-  | "completed"
-  | "cancelled";
+export type AppointmentStatus = "confirmed" | "completed" | "cancelled";
 
 export interface IAppointment extends Document {
   doctorId: mongoose.Types.ObjectId;

@@ -41,7 +41,7 @@ export default function HeroSection() {
       
       <div className="relative flex-1 flex justify-end pr-7">
         <div className="relative overflow-hidden rounded-3xl shadow-2xl">
-          <Image src="/h1.jpg" alt="Hospital" width={700} height={750}
+          <Image src="/h1.jpg" alt="Hospital" width={700} height={750} loading="eager"
             className="h-[650px] w-[800px] object-cover"/>
 
          

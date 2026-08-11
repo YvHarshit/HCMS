@@ -2,13 +2,13 @@ import { NextResponse } from "next/server";
 
 export function GET() {
     const data = [
-        {id : 1 , name : "Harshit"} ,
-        {id : 2, name : "Aditya"} 
+        {name : "Harshit"} ,
+        {name : "Aditya Raj"} 
     ];
 
 
     return NextResponse.json({
-        message : "Data get fetched" ,
+        message : "You both are the BEST" ,
         data : data,
     },
     { status : 200} 

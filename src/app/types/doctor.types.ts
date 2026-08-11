@@ -15,5 +15,5 @@ export interface CreateDoctorData {
 export interface CreateDoctorDocumentData extends CreateDoctorData {
   rating: number;
   totalReviews: number;
-  isApproved: boolean;
+  status: string;
 }

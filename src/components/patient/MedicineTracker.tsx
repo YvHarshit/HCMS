@@ -53,12 +53,8 @@ export default function MedicineTracker() {
               index !== medicines.length - 1 && "border-b" }`}>
           
             <div className="flex items-center gap-4">
-              <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-gray-100">
-                {medicine.id === 1 ? (
-                  <Pill className="h-6 w-6 text-gray-600" />
-                ) : (
-                  <SquarePlus className="h-6 w-6 text-gray-600" />
-                )}
+              <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-gray-100 border">               
+                  <Pill className="h-6 w-6 text-gray-600" />               
               </div>
 
               <div>

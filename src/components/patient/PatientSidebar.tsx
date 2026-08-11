@@ -3,6 +3,7 @@ import { Calendar, FileText, Home, MessageSquare, Pill, Settings} from "lucide-r
 import {Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem} from "@/components/ui/sidebar"
 import Link from "next/link"
 import { AddCircleRounded, FavoriteRounded, HelpOutlineRounded, LogoutRounded } from "@mui/icons-material"
+import { useRouter } from "next/navigation";
 
 const navItems = [
   { title: "Dashboard", url: "/patient", icon: Home },
@@ -13,6 +14,7 @@ const navItems = [
 ]
 
 export function PatientSidebar() {
+  const router = useRouter()
   return (
     <Sidebar>                                                 
       <SidebarHeader className="border-b px-5 py-6">
@@ -27,7 +29,8 @@ export function PatientSidebar() {
           </div>
         </div>
 
-        <button className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 py-3 text-white transition hover:bg-blue-700">
+        <button onClick={()=> router.push("/patient/appointments") }
+        className="mt-6 flex w-full items-center justify-center cursor-pointer gap-2 rounded-xl bg-blue-600 py-3 text-white transition hover:bg-blue-700">
           <AddCircleRounded fontSize="large" />
           <p className="text-lg"> Book Appointment </p>
         </button>

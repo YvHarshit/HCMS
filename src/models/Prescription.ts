@@ -118,11 +118,6 @@ const PrescriptionSchema = new Schema<IPrescription>(
   }
 );
 
-const Prescription: Model<IPrescription> =
-  mongoose.models.Prescription ||
-  mongoose.model<IPrescription>(
-    "Prescription",
-    PrescriptionSchema
-  );
+const Prescription: Model<IPrescription> =  mongoose.models.Prescription ||  mongoose.model<IPrescription>("Prescription", PrescriptionSchema);
 
 export default Prescription;

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import MoreHorizRoundedIcon from "@mui/icons-material/MoreHorizRounded";
 
 const applications = [
@@ -42,18 +43,14 @@ const statusStyles = {
 export default function AdminApplications() {
   return (
     <div className="rounded-xl border bg-white shadow-sm">
-      {/* Header */}
+    
       <div className="flex items-center justify-between border-b px-6 py-4">
-        <h2 className="text-xl font-semibold">
+        <h2 className="text-2xl font-semibold">
           Recent Doctor Applications
         </h2>
-
-        <button>
-          <MoreHorizRoundedIcon className="text-slate-500" />
-        </button>
       </div>
 
-      {/* Table */}
+      
       <table className="w-full">
         <thead className="border-b bg-slate-50">
           <tr className="text-left text-sm text-slate-500">
@@ -69,8 +66,7 @@ export default function AdminApplications() {
           {applications.map((doctor) => (
             <tr
               key={doctor.id}
-              className="border-b last:border-none hover:bg-slate-50"
-            >
+              className="border-b last:border-none hover:bg-blue-100">
               <td className="px-6 py-4">
                 <div className="flex items-center gap-3">
                   <div className="flex h-9 w-9 items-center justify-center rounded-full bg-blue-100 font-semibold text-blue-600">
@@ -112,11 +108,12 @@ export default function AdminApplications() {
       </table>
 
       {/* Footer */}
-      <div className="border-t py-4 text-center">
-        <button className="font-medium text-blue-600 hover:underline">
-          View All Applications
-        </button>
-      </div>
+
+<div className="border-t py-4 text-center">
+  <Link  href="/hospitalAdmin/doctors"  className="font-medium text-blue-600 hover:underline">
+    View All Doctors Application.
+  </Link>
+</div>
     </div>
   );
 }

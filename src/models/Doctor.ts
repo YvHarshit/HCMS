@@ -19,7 +19,8 @@ export interface IDoctor extends Document {
 
   role: string;
 
-  isApproved: boolean;
+  //isApproved: boolean;
+  status: "pending" | "approved" | "rejected";
 
   createdAt: Date;
   updatedAt: Date;
@@ -101,9 +102,14 @@ const DoctorSchema = new Schema<IDoctor>(
       immutable: true,
     },
 
-    isApproved: {
-      type: Boolean,
-      default: false,
+    // isApproved: {
+    //   type: Boolean,
+    //   default: false,
+    // },
+    status: {
+      type: String,
+      enum: ["pending", "approved", "rejected"],
+      default: "pending",
     },
   },
   {

@@ -49,10 +49,10 @@ export function DashboardSidebar({
           </div>
         </div>
 
-        <button className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 py-3 text-white text-lg">
+        {/* <button className="mt-6 flex w-full items-center justify-center gap-2 rounded-xl bg-blue-600 py-3 text-white text-lg">
           <AddRoundedIcon />
           New Consultation
-        </button>
+        </button> */}
       </SidebarHeader>
 
       <SidebarContent className="px-4 py-5">
