@@ -1,30 +1,39 @@
 "use client"
-import { Login } from "@mui/icons-material";
+
 import LocalHospitalRoundedIcon from "@mui/icons-material/LocalHospitalRounded";
 import { useState } from "react"
 import { LogIn } from "lucide-react"
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import { Login } from "@mui/icons-material";
 
 export default function LandingPageNavbar() {
+  const router = useRouter()
   const [isOpen, setIsOpen] = useState(false)
   return (
     <div className="flex py-6 px-22 ">
+
+      <Link  href="/">
       <div className="flex flex-1 items-center gap-4">
         <LocalHospitalRoundedIcon fontSize="large" className="text-blue-800"/>
         <span className="text-3xl font-semibold text-blue-700"> City General </span>
       </div>
+      </Link>
 
       <div className="flex flex-2 gap-9 justify-center">
-        <button className="text-xl "> About </button>
-        <button className="text-xl ">  Services </button>
+        <button onClick={() => router.push("/about")} className="text-xl hover:text-blue-800 cursor-pointer hover:border-b-2 transition-all"> About </button>
         <button className="text-xl ">  Specialties </button>
         <button className="text-xl ">  Doctors </button>
         <button className="text-xl ">  Contact </button>
+        <button onClick={() => router.push("/support")} className="text-xl hover:text-blue-800 cursor-pointer hover:border-b-2">  Support </button>
       </div>
 
-      {/* <div className="flex flex-1 justify-end ">
-        <button className="bg-blue-600 py-2 px-3 rounded text-lg cursor-pointer text-white hover:bg-blue-700"> <span> <Login/> </span> Login </button>
-      </div> */}
-      <div className="relative flex flex-1 justify-end">
+      <div className="flex flex-1 justify-end ">
+        <Link href="/login" className="flex gap-2 bg-blue-600 py-2 px-3 rounded text-lg cursor-pointer text-white hover:bg-blue-700"> <span> <Login/> </span> Login </Link>
+      </div>
+
+
+    {/*  <div className="relative flex flex-1 justify-end">
       
       <button
         onClick={() => setIsOpen(!isOpen)}
@@ -40,7 +49,10 @@ export default function LandingPageNavbar() {
           <a href="/login/hospitalAdmin" className="block px-4 py-2 text-gray-700 hover:bg-gray-100"> Login as Admin </a>
         </div>
       )}
-    </div>
+    </div> */}
+
+
+
     </div>
   );
 }

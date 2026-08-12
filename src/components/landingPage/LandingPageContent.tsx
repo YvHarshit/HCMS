@@ -36,7 +36,7 @@ export default function LandingPageContent() {
               Manage your health records, view test results, and book <br />
               appointments.
             </p>
-            <button className="text-blue-700 text-xl cursor-pointer mt-5 inline-flex items-center gap-3 bg-blue-200/50 p-2 rounded"
+            <button className="text-blue-700 text-xl cursor-pointer mt-5 inline-flex items-center gap-3 p-2 rounded"
              onClick={() => router.push("/patient")}>
                
               Access Portal <ArrowRightIcon /> 
@@ -51,7 +51,7 @@ export default function LandingPageContent() {
               Manage your health records, view test results, and book <br />
               appointments.
             </p>
-            <button className="text-blue-700 text-xl cursor-pointer mt-5 inline-flex items-center gap-3 bg-blue-200/50 p-2 rounded"
+            <button className="text-blue-700 text-xl cursor-pointer mt-5 inline-flex items-center gap-3 p-2 rounded"
             onClick={() => router.push("/doctor")}>
                
               Access Portal <ArrowRightIcon /> 
@@ -69,7 +69,7 @@ export default function LandingPageContent() {
               Manage your health records, view test results, and book <br />
               appointments.
             </p>
-            <button className="text-blue-700 text-xl cursor-pointer mt-5 inline-flex items-center gap-3 bg-blue-200/50 p-2 rounded"
+            <button className="text-blue-700 text-xl cursor-pointer mt-5 inline-flex items-center gap-3 p-2 rounded"
             onClick={() => router.push("/hospitalAdmin")}>
                
               Access Portal <ArrowRightIcon /> 
@@ -96,42 +96,42 @@ export default function LandingPageContent() {
 
         <div className="grid grid-cols-3 md:grid-cols-6 gap-4 mt-8 text-xl">
             
-          <div className="flex flex-col gap-3 p-8 shadow-xl rounded-2xl bg-white justify-center items-center border">
+          <div className="flex flex-col gap-3 p-8 shadow-xl rounded-2xl bg-white justify-center items-center border hover:bg-blue-700/10 transition duration-300 ">
             <div className="flex items-center justify-center h-15 w-15 rounded-full bg-blue-500/20 text-gray-700">
               <Heart fontSize="large" />
             </div>
             <span> Cardiologist</span>
           </div>
           
-          <div className="flex flex-col gap-3 p-8 shadow-xl rounded-2xl bg-white justify-center items-center border">
+          <div className="flex flex-col gap-3 p-8 shadow-xl rounded-2xl bg-white justify-center items-center border hover:bg-blue-700/10 transition duration-300">
             <div className="flex items-center justify-center h-15 w-15 rounded-full bg-blue-500/20 text-gray-700">
               <Brain fontSize="large" />
             </div>
             <span> Neurology </span>
           </div>
           
-          <div className="flex flex-col gap-3 p-8 shadow-xl rounded-2xl bg-white justify-center items-center border">
+          <div className="flex flex-col gap-3 p-8 shadow-xl rounded-2xl bg-white justify-center items-center border hover:bg-blue-700/10 transition duration-300">
             <div className="flex items-center justify-center h-15 w-15 rounded-full bg-blue-500/20 text-gray-700">
               <Syringe fontSize="large" />
             </div>
             <span> Oncology </span>
           </div>
           
-          <div className="flex flex-col gap-3 p-8 shadow-xl rounded-2xl bg-white justify-center items-center border">
+          <div className="flex flex-col gap-3 p-8 shadow-xl rounded-2xl bg-white justify-center items-center border hover:bg-blue-700/10 transition duration-300">
             <div className="flex items-center justify-center h-15 w-15 rounded-full bg-blue-500/20 text-gray-700">
               <ChildFriendly fontSize="large" />
             </div>
             <span> Pediatrics </span>
           </div>
           
-          <div className="flex flex-col gap-3 p-8 shadow-xl rounded-2xl bg-white justify-center items-center border">
+          <div className="flex flex-col gap-3 p-8 shadow-xl rounded-2xl bg-white justify-center items-center border hover:bg-blue-700/10 transition duration-300">
             <div className="flex items-center justify-center h-15 w-15 rounded-full bg-blue-500/20 text-gray-700">
               <BoneFracture fontSize="large" />
             </div>
             <span> Orthopedics </span>
           </div>
           
-          <div className="flex flex-col gap-3 p-8 shadow-xl rounded-2xl bg-white justify-center items-center border">
+          <div className="flex flex-col gap-3 p-8 shadow-xl rounded-2xl bg-white justify-center items-center border hover:bg-blue-700/10 transition duration-300">
             <div className="flex items-center justify-center h-15 w-15 rounded-full bg-blue-500/20 text-gray-700">
               <EmergencyShare fontSize="large" />
             </div>
