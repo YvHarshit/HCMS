@@ -8,10 +8,10 @@ export default function About() {
 
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md">  <LandingPageNavbar />  </nav>
 
-      <div className="relative h-[870px] w-full overflow-hidden">
-        <Image src="/h2.jpg" alt="bg-hosp" fill className="object-cover blur-xs brightness-100" priority />
+      <div className="relative h-[calc(100dvh-5rem)] w-full overflow-hidden">
+        <Image src="/h2.jpg" alt="bg-hospital" fill className="object-cover blur-xs brightness-100" priority />
        
-        <div className="relative z-10 flex h-full items-center justify-center px-22 text-white">
+        <div className="relative z-10 flex h-full items-center justify-center px-22 text-white mt-[1/2dvh]">
             <div className="flex flex-col items-center gap-5">
               <h2 className="text-7xl font-bold "> City General Hospital</h2>
               <p className=" text-2xl"> Defining the Future of Clinical Excellence. </p>

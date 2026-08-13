@@ -2,7 +2,6 @@
 
 import LocalHospitalRoundedIcon from "@mui/icons-material/LocalHospitalRounded";
 import { useState } from "react"
-import { LogIn } from "lucide-react"
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Login } from "@mui/icons-material";

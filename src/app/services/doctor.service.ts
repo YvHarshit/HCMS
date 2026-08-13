@@ -19,6 +19,8 @@ export async function registerDoctor(data: CreateDoctorData) {
   }
   const hashedPassword = await bcrypt.hash(data.password, 10);
 
+  // if (role === D)
+
   const doctor = await createDoctor({
     ...data,
     email: data.email.toLowerCase(),
@@ -32,6 +34,9 @@ export async function registerDoctor(data: CreateDoctorData) {
 
   return doctorWithoutPassword;
 }
+
+
+// if (role === p)
 
 
 

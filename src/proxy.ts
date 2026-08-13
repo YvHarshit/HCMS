@@ -1,10 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
+import connectDB from "./lib/db";
 
 export function proxy(req: NextRequest) {
-  // console.log(`[Test_Proxy]`);
-  // console.log(`Method: ${req.method}`);
-  // console.log(`URL: ${req.url}`);
   console.log("Middleware Running.........")
+  connectDB()
 
   return NextResponse.next();
 }

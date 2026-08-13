@@ -6,7 +6,7 @@ export async function GET() {
 
     return Response.json({
       success: true,
-      message: "MongoDB connected",
+      message: "MongoDB connected...",
     });
   } catch (error) {
     return Response.json(
