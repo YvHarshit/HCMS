@@ -29,7 +29,7 @@ export function PatientSidebar() {
           </div>
         </div>
 
-        <button onClick={()=> router.push("/patient/appointments") }
+        <button onClick={()=> router.push("/patient/bookAppointment") }
         className="mt-6 flex w-full items-center justify-center cursor-pointer gap-2 rounded-xl bg-blue-600 py-3 text-white transition hover:bg-blue-700">
           <AddCircleRounded fontSize="large" />
           <p className="text-lg"> Book Appointment </p>
