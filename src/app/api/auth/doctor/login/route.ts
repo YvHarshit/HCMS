@@ -1,7 +1,6 @@
 import Doctor from "@/models/Doctor";
 import bcrypt from "bcryptjs";
 import { NextRequest, NextResponse } from "next/server"
-import jwt from "jsonwebtoken"
 import { cookies } from "next/headers";
 import { createToken } from "@/lib/jwt";
 
@@ -26,7 +25,7 @@ export async function POST(req: NextRequest) {
         const user = await Doctor.findOne({ email })
         if(!user) {
             return NextResponse.json ({
-                succes : false  ,
+                success : false  ,
                 message : "Invalid Email"
             })
         }
