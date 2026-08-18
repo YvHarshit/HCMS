@@ -37,7 +37,7 @@ export default function LandingPageContent() {
               appointments.
             </p>
             <button className="text-blue-700 text-xl cursor-pointer mt-5 inline-flex items-center gap-3 p-2 rounded"
-             onClick={() => router.push("/patient")}>
+             onClick={() => router.push("/login")}>
                
               Access Portal <ArrowRightIcon /> 
             </button>
@@ -52,7 +52,7 @@ export default function LandingPageContent() {
               appointments.
             </p>
             <button className="text-blue-700 text-xl cursor-pointer mt-5 inline-flex items-center gap-3 p-2 rounded"
-            onClick={() => router.push("/doctor")}>
+            onClick={() => router.push("/login")}>
                
               Access Portal <ArrowRightIcon /> 
             </button>
@@ -70,7 +70,7 @@ export default function LandingPageContent() {
               appointments.
             </p>
             <button className="text-blue-700 text-xl cursor-pointer mt-5 inline-flex items-center gap-3 p-2 rounded"
-            onClick={() => router.push("/hospitalAdmin")}>
+            onClick={() => router.push("/login")}>
                
               Access Portal <ArrowRightIcon /> 
             </button>
