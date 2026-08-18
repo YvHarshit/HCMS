@@ -1,41 +1,78 @@
-import { LocalHospitalRounded } from "@mui/icons-material";
-import Image from "next/image";
-import Link from "next/link";
+"use client";
 
-export default function login() {
-    return (
-        <div className="relative min-h-screen w-full overflow-hidden">
-            <Image src="/h2.jpg" alt="photo" fill className="object-cover blur-sm brightness-90" priority />
+import { LocalHospital } from "@mui/icons-material";
+import { useRouter } from "next/navigation";
+import axios from "axios";
+import AuthSideImage from "@/shared/authSharedImg";
+import { LoginFormData } from "@/validations/loginData";
+import LoginForm from "@/shared/LoginForm";
 
-                <Link href="/" className="absolute top-8 left-22 z-20 flex w-max items-center gap-4 cursor-pointer">
-                        <LocalHospitalRounded fontSize="large" className="text-blue-600" />
-                        <span className="text-3xl font-bold text-white"> City General </span>
-                    
-                </Link>
-          
+export default function Login() {
+  const router = useRouter();
 
-            <div className="relative z-10 flex flex-col justify-center items-center min-h-screen px-4">
-                <h2 className="text-3xl md:text-5xl font-semibold mb-6 text-white text-center"> You have three options: </h2>
-                <div className="flex flex-col gap-4 w-full max-w-md p-7 bg-white rounded-xl">
-                    <Link href="/login/patient" className="w-full text-center text-xl bg-blue-100 text-blue-900 py-3 px-4 rounded-lg hover:bg-blue-600 hover:text-white transition duration-200 ease-in-out shadow-sm">  Login As PATIENT </Link>
-                    <Link href="/login/doctor" className="w-full text-center text-xl bg-blue-100 text-blue-900 py-3 px-4 rounded-lg hover:bg-blue-600 hover:text-white transition duration-200 ease-in-out shadow-sm">  Login As DOCTOR </Link>
-                    <Link href="/login/hospitalAdmin" className="w-full text-center text-xl bg-blue-100 text-blue-900 py-3 px-4 rounded-lg hover:bg-blue-600 hover:text-white transition duration-200 ease-in-out shadow-sm">  Login As HOSPITAL ADMIN </Link>
+  const handleLogin = async (data: LoginFormData) => {
+    
+    const { role } = data;
 
-                </div>
-            </div>
+    try {
+      
+      let endpoint = "";
+      let redirectPath = "";
+
+      if (role === "patient") {
+        endpoint = "http://localhost:3000/api/auth/patient/login";
+        redirectPath = "/patient";
+      } else if (role === "doctor") {
+        endpoint = "http://localhost:3000/api/auth/doctor/login";
+        redirectPath = "/doctor";
+      } else if (role === "hospitalAdmin") {
+        endpoint = "http://localhost:3000/api/auth/hospitalAdmin/login";
+        redirectPath = "/hospitalAdmin"; 
+      }
+
+
+      if (!endpoint) {
+        console.log("Invalid role configuration");
+        return;
+      }
+
+      const response = await axios.post(endpoint, data);
+      console.log(response.data);
+
+      if (response.data.success) {
+        console.log(response.data.message);
+        router.push(redirectPath);
+      } else {
+        console.log("Something went wrong with authentication parameters.");
+      }
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.log(error.response?.data?.message || "Axios error occurred");
+      } else {
+        console.log("Something went wrong");
+      }
+    }
+  };
+
+  return (
+    <div className="flex">
+      <div className="relative flex-1 w-max min-h-screen hidden lg:block">
+        <AuthSideImage />
+      </div>
+
+      <div className="flex-1 flex flex-col justify-center items-center">
+        <div className="my-9 block lg:hidden">
+          <h2 className="text-3xl font-bold flex gap-4 items-center">
+            <LocalHospital fontSize="large" className="text-blue-700 bg-white rounded text-center" />
+            City General Hospital
+          </h2>
+          <p className="text-lg text-center text-gray-600"> Access Your Centralized Portal </p>
         </div>
 
-    );
+        <div>
+          <LoginForm onLogin={handleLogin} />
+        </div>
+      </div>
+    </div>
+  );
 }
-
-
- 
-
-
-
-
-
-
-
-
-

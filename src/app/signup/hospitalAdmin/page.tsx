@@ -1,10 +1,10 @@
 "use client"
 
 import AuthSideImage from "@/shared/authSharedImg";
-import LoginForm, { LoginFormData } from "@/shared/LoginForm";
+import LoginForm from "@/shared/LoginForm";
+import { LoginFormData } from "@/validations/loginData";
 import { LocalHospital } from "@mui/icons-material";
 import axios from "axios";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 export default function hospitalAdminLogin() {
@@ -31,10 +31,7 @@ export default function hospitalAdminLogin() {
     }
   };
     return (
-        <div className="flex">
-            <div className="relative flex-1 w-max min-h-screen hidden lg:block">
-               <AuthSideImage/>
-            </div>
+       
 
 
             <div className="flex-1 flex flex-col justify-center items-center">
@@ -44,11 +41,14 @@ export default function hospitalAdminLogin() {
                 </h2>
                 <p className="text-lg text-center"> Access Your Centralized Hospital Admin Portal</p>
             </div>
-            <div>
-                <LoginForm onLogin={handleLogin} />
-            </div>
+            <div>    Hospital admin sign up     </div>
               
+
+             <div className="flex">
+            <div className="relative flex-1 w-max min-h-screen hidden lg:block">
+               <AuthSideImage/>
             </div>
         </div>
+      </div>
     );
 }

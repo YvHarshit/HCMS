@@ -1,5 +1,5 @@
 import LandingPageNavbar from "@/components/landingPage/LandingPageNavbar";
-import { Badge, Brain, Computer, Eye, Goal, ShieldCheck, Smartphone, Verified } from "lucide-react";
+import { Brain, Computer, Eye, Goal, ShieldCheck } from "lucide-react";
 import Image from "next/image";
 
 export default function About() {
