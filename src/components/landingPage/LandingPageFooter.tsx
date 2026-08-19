@@ -20,7 +20,7 @@ export default function LandingPageFooter() {
             <div className="flex items-center gap-3">
               <LocalHospitalIcon className="text-blue-400" />
               <h2 className="text-3xl font-bold text-white">
-                City General
+                City General Hospital
               </h2>
             </div>
 

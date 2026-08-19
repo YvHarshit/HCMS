@@ -6,7 +6,7 @@ export interface IDoctor extends Document {
   password: string;
   phone: string;
 
-  hospitalId?: mongoose.Types.ObjectId;
+  // hospitalId?: mongoose.Types.ObjectId;
 
   specialization: string;
   qualification: string;
@@ -53,10 +53,10 @@ const DoctorSchema = new Schema<IDoctor>(
       trim: true,
     },
 
-    hospitalId: {
-      type: Schema.Types.ObjectId,
-      required: true,
-    },
+    // hospitalId: {
+    //   type: Schema.Types.ObjectId,
+    //   required: true,
+    // },
 
     specialization: {
       type: String,

@@ -17,11 +17,14 @@ export async function createDoctorController(req: Request) {
   try {
     const body = await req.json();
 
-    const { name, email, password, phone, hospitalId, specialization, qualification, experience, consultationFee } = body;
+    const { name, email, password, phone, specialization, qualification, experience, consultationFee } = body;
+
+    console.log("Received Doctor Signup Data:", { name, email, password, phone, specialization, qualification, experience, consultationFee });
+    console.log(typeof experience, typeof consultationFee)
 
     
 
-    if (!name || !email || !password || !phone || !hospitalId || !specialization || !qualification || experience === undefined || consultationFee === undefined) {
+    if (!name || !email || !password || !phone || ! !specialization || !qualification || experience === undefined || consultationFee === undefined) {
       return Response.json(
         {
           success: false,
@@ -31,7 +34,7 @@ export async function createDoctorController(req: Request) {
       );
     }
 
-    const doctor = await registerDoctor({name, email, password, phone, hospitalId, specialization, qualification, experience, consultationFee});
+    const doctor = await registerDoctor({name, email, password, phone,  specialization, qualification, experience, consultationFee});
 
     return Response.json(
       {

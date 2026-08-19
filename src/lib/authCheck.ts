@@ -7,7 +7,7 @@ export async function authCheck() {
   const token = cookieStore.get("token")?.value;
 
   if (!token) {
-    throw new Error("Unauthorized");
+    throw new Error("Unauthorized - Token not found");
   }
 
   try {

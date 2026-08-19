@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Eye, EyeOff } from "lucide-react";
 import { Google } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
-import { LoginFormData, loginSchema } from "@/validations/loginData";
+import { LoginFormData, loginSchema } from "@/validations/authData";
 import { LoginFormProps } from "@/app/types/login.types";
 
 
@@ -15,6 +15,7 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
 
   const router = useRouter();
   const [showPassword, setShowPassword] = React.useState(false);   
+  const [role, setRole] = React.useState("patient")
 
 
   const {register, handleSubmit, control, formState: { errors, isSubmitting }} = useForm<LoginFormData>({
@@ -39,25 +40,30 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
       </div>
 
 
-      {/* Integrated React Hook Form Controller for custom role buttons */}
       <Controller name="role" control={control}
         render={({ field: { value, onChange } }) => (
           <div className="flex justify-evenly border-2 rounded-xl mb-6 overflow-hidden border-gray-200">
             <button type="button"
               className={`p-2 w-full flex-1 font-medium transition-colors cursor-pointer ${
                 value === "patient" ? "bg-blue-600 text-white" : "bg-blue-50 text-blue-700 hover:bg-blue-100"}`}
-              onClick={() => onChange("patient")}>
+              onClick={() =>{ onChange("patient")
+                setRole("patient")
+              }}>
               Patient  </button>
 
             <button type="button" className={`p-2 w-full flex-1 font-medium transition-colors ${
                 value === "doctor" ? "bg-blue-600 text-white" : "bg-blue-50 text-blue-700 hover:bg-blue-100" }`}
-              onClick={() => onChange("doctor")} >
+              onClick={() => {onChange("doctor")
+                setRole("doctor")
+              }} >
               Doctor </button>
 
             <button type="button" className={`p-2 w-full flex-1 font-medium transition-colors ${
                 value === "hospitalAdmin" ? "bg-blue-600 text-white" : "bg-blue-50 text-blue-700 hover:bg-blue-100"
               }`}
-              onClick={() => onChange("hospitalAdmin")}>
+              onClick={() => {onChange("hospitalAdmin")
+                setRole("hospitalAdmin")
+              }}>
               Hosp. Admin </button>
           </div>
         )}/>
@@ -107,8 +113,19 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
       </form>
 
       <div>
-         <p className="text-center m-2"> Don't have an account ?{' '} 
-          <span className="text-blue-700 cursor-pointer  " onClick={() => router.push('/create')}>  Sign Up here  </span></p>
+         <p className="text-center m-2"> Don't have an account ? {" "}
+          <span className="text-blue-700 cursor-pointer  " 
+          onClick={() => {
+            if(role === 'doctor')
+              router.push('/signup/doctor')
+
+            if(role  === 'patient')
+              router.push('/signup/patient')
+
+            if(role  === 'hospitalAdmin')
+              router.push('/signup/hospitalAdmin')
+             }}>  
+             Sign Up here  </span></p>
       </div>
 
       <div className="my-7 flex items-center gap-3">

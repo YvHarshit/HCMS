@@ -43,6 +43,8 @@ export async function POST(req: NextRequest) {
         // const token = jwt.sign({id: user._id}, process.env.JWT_SECRET as string, { expiresIn : '1d' })
         const token = createToken({_id: user._id.toString()});
 
+        console.log("Token generated for user:", user.email, "Token:", token);
+
         cookieStore.set("token", token, {
           httpOnly: true,
           secure: true,

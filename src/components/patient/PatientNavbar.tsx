@@ -9,7 +9,7 @@ export default function PatientNavbar() {
     
         <div className="flex items-center gap-4">
           <SidebarTrigger/>
-          <Link href="/patient" className="text-3xl font-bold text-blue-700"> HCMS  </Link>
+          <Link href="/patient" className="text-3xl font-bold text-blue-700"> City General Hospital</Link>
         </div>
        
         <div className="flex items-center gap-5">

@@ -15,7 +15,7 @@ export default function DoctorNavbar() {
           <SidebarTrigger/>
 
           <Link href="/doctor" className="text-3xl font-bold text-blue-700">
-            HCMS
+            City General Hospital
           </Link>
         </div>
 

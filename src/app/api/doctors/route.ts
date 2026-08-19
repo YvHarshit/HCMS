@@ -5,15 +5,16 @@ import { getAllDoctors } from "@/app/repositories/doctor.repository";
 
 export async function GET() {
   try {
-    const user = await authCheck();
-    // User is authenticated
-    console.log("Logged in user:", user);
+    // const user = await authCheck();
+    // // User is authenticated
+    // console.log("Logged in user:", user);
     // Your API logic here
-    // const doctors = await getAllDoctors();
+     const doctors = await getAllDoctors();
     // console.log(doctors)
     return NextResponse.json({
       success: true,
       message: "Doctors fetched successfully",
+      doctors
     });
 
   } catch (error) {

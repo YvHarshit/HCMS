@@ -1,9 +1,10 @@
 "use client";
 
+import HospitalAdminSignupForm from "@/components/authRegister/hospAdminSignup";
 import AuthSideImage from "@/shared/authSharedImg";
 import { LocalHospital } from "@mui/icons-material";
 
-export default function hospitalAdminLogin() {
+export default function HospitalAdminSignup() {
   return (
     <div className="flex">
 
@@ -17,7 +18,7 @@ export default function hospitalAdminLogin() {
             Access Your Centralized Hospital Admin Portal
           </p>
         </div>
-        <div className=" text-7xl"> Hospital admin sign up </div>
+        <div> <HospitalAdminSignupForm/> </div>
       </div>
 
       <div className="relative flex-1 w-max min-h-screen hidden lg:block">

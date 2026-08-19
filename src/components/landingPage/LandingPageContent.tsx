@@ -1,30 +1,18 @@
 "use client"
 import {ChildFriendly, EmergencyShare, PersonAddAltSharp, Vaccines} from "@mui/icons-material";
-import {
-  ArrowRightIcon,
-  ArrowUpRightFromSquareIcon,
-  BoneFracture,
-  Brain,
-  Heart,
-  LucideStethoscope,
-  Syringe,
-} from "lucide-react";
+import { ArrowRightIcon, ArrowUpRightFromSquareIcon, BoneFracture, Brain, Heart, LucideStethoscope, Syringe } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export default function LandingPageContent() {
-    const router = useRouter();
+
+  const router = useRouter();
   return (
     <>
       <div className="w-full bg-blue-200/15 py-9 px-22">
-        <h2 className="text-3xl text-center font-gray-700">
-           
-          Centeralize Access Portals 
-        </h2>
-        <p className="text-xl text-center font-gray-500 mt-4">
-           
+        <h2 className="text-4xl text-gray-800 font-semibold">   Centeralize Access Portals  </h2>
+        <p className="text-xl text-gray-700 mt-2">           
           Secure, role based gateway designed for efficient, clarity and
-          precision in medical <br />
-          management 
+          precision in medical <br /> management 
         </p>
 
         <div className="grid grid-cols-3 gap-4 mt-10">
@@ -46,10 +34,8 @@ export default function LandingPageContent() {
           <div className="w-full  p-7 rounded bg-white shadow-xl">
             <LucideStethoscope fontSize="large" />
             <h2 className="text-3xl pt-3 font-semibold"> Doctor Portal</h2>
-            <p className="text-lg text-gray-600">
-               
-              Manage your health records, view test results, and book <br />
-              appointments.
+            <p className="text-lg text-gray-600">               
+              Manage your health records, view test results, and book <br />  appointments.
             </p>
             <button className="text-blue-700 text-xl cursor-pointer mt-5 inline-flex items-center gap-3 p-2 rounded"
             onClick={() => router.push("/login")}>
@@ -82,8 +68,8 @@ export default function LandingPageContent() {
         <h2 className="text-4xl text-gray-800 font-semibold">
           Comprehensive Care Specialties 
         </h2>
-        <div className="flex mt-3 text-xl justify-between">
-          <span className="text-gray-600">
+        <div className="flex text-xl justify-between">
+          <span className="text-xl text-gray-700 mt-2">
             Our network of specialties utlilizes state-of-art diagnostic tools
             integrated <br />
             directly into the HCMS plateformfor coordinated care.

@@ -52,10 +52,10 @@ export default function Doctors() {
   useEffect(() => {
     async function fetchDoctors() {
       try {
-        const response = await fetch("/api/doctors");
+        const response = await fetch("http://localhost:3000/api/doctors");
         const result = await response.json();
 
-        if (result.success)  setDoctors(result.data); 
+        if (result.success)  setDoctors(result.doctors); 
       } catch (error) {
         console.error("Failed to fetch doctors:", error);
       } finally {

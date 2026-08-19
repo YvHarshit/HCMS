@@ -14,12 +14,16 @@ export async function registerDoctor(data: CreateDoctorData) {
  
   const existingDoctor = await findDoctorByEmail(data.email);
 
-  if (existingDoctor) {
-    throw new Error("Doctor with this email already exists");
+  // if (existingDoctor) {
+  //   throw new Error("Doctor with this email already exists");
+  // }
+   if (existingDoctor) {
+    return Response.json(
+      { message: 'Email is already taken' },
+      { status: 400 }
+    );
   }
   const hashedPassword = await bcrypt.hash(data.password, 10);
-
-  // if (role === D)
 
   const doctor = await createDoctor({
     ...data,

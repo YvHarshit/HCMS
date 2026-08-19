@@ -14,8 +14,8 @@ export default function HospitalAdminNavbar() {
         <div className="flex items-center gap-4">
           <SidebarTrigger/>
 
-          <Link href="/doctor" className="text-3xl font-bold text-blue-700">
-            HCMS
+          <Link href="/hospitalAdmin" className="text-3xl font-bold text-blue-700">
+            City General Hospital
           </Link>
         </div>
 

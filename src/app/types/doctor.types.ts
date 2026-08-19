@@ -5,7 +5,7 @@ export interface CreateDoctorData {
   email: string;
   password: string;
   phone: string;
-  hospitalId: string;
+  // hospitalId: string;
   specialization: string;
   qualification: string;
   experience: number;

@@ -4,7 +4,7 @@ import { LocalHospital } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import AuthSideImage from "@/shared/authSharedImg";
-import { LoginFormData } from "@/validations/loginData";
+import { LoginFormData } from "@/validations/authData";
 import LoginForm from "@/shared/LoginForm";
 
 export default function Login() {

@@ -1,9 +1,10 @@
 "use client";
 
+import DoctorSignupForm from "@/components/authRegister/doctorSignup";
 import AuthSideImage from "@/shared/authSharedImg";
 import { LocalHospital } from "@mui/icons-material";
 
-export default function hospitalAdminLogin() {
+export default function DoctorSignup() {
   return (
     <div className="flex">
       
@@ -13,10 +14,10 @@ export default function hospitalAdminLogin() {
             <LocalHospital fontSize="large" className="text-blue-700 bg-white rounded text-center"/>
             City General Hospital
           </h2>
-          <p className="text-lg text-center"> Access Your Centralized Hospital Admin Portal  </p>
+          <p className="text-lg text-center"> Access Your Centralized Portal  </p>
         </div>
         
-        <div className="text-7xl">  Doctor sign up </div>
+        <div> <DoctorSignupForm/> </div>
       </div>
 
 
