@@ -32,7 +32,7 @@ export default function PatientSignupForm() {
     console.log("Submitting Patient Signup Data:", {data})
     try {
        const { name, email, password, dateOfBirth, phone, gender, address } = data
-       const response = await axios.post("http://localhost:3000/api/patients", {name, email, password, dateOfBirth, phone, gender, address})
+       const response = await axios.post("http://localhost:3000/api/auth/patient/signup", {name, email, password, dateOfBirth, phone, gender, address})
 
       if (response.data.success) {
         console.log(response.data.message)

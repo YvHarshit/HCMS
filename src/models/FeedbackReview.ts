@@ -1,19 +1,8 @@
-import mongoose, { Document, Model, Schema } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
-export interface IFeedbackReview extends Document {
-  doctorId: mongoose.Types.ObjectId;
-  patientId: mongoose.Types.ObjectId;
-  appointmentId: mongoose.Types.ObjectId;
 
-  rating: number;
-  comment?: string;
 
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-const FeedbackReviewSchema =
-  new Schema<IFeedbackReview>(
+const FeedbackReviewSchema =  new Schema(
     {
       doctorId: {
         type: Schema.Types.ObjectId,
@@ -50,11 +39,6 @@ const FeedbackReviewSchema =
     }
   );
 
-const FeedbackReview: Model<IFeedbackReview> =
-  mongoose.models.FeedbackReview ||
-  mongoose.model<IFeedbackReview>(
-    "FeedbackReview",
-    FeedbackReviewSchema
-  );
+const FeedbackReview =  mongoose.models.FeedbackReview || mongoose.model("FeedbackReview", FeedbackReviewSchema);
 
 export default FeedbackReview;

@@ -5,7 +5,7 @@ if (!JWT_SECRET) {
   throw new Error("JWT_SECRET is not defined");
 }
 
-export interface JwtPayload {
+export interface JwtPayload {  // I will have to add ROLE in this interface to differentiate between doctor, patient & admin 
   _id: string;
 }
 

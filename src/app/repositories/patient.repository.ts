@@ -15,7 +15,6 @@ export async function createPatient(patientData: CreatePatientData) {
 }
 
 export async function findPatientByEmail(email: string) {
-  await connectDB();
   return Patient.findOne({email: email.toLowerCase()});
 }
 

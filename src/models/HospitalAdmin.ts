@@ -1,20 +1,7 @@
-import mongoose, { Document, Model, Schema } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
-export interface IHospitalAdmin extends Document {
-  name: string;
-  email: string;
-  password: string;
-  phone: string;
 
-  hospitalName: string;
-
-  role: string;
-
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-const HospitalAdminSchema = new Schema<IHospitalAdmin>(
+const HospitalAdminSchema = new Schema(
   {
     name: {
       type: String,
@@ -60,8 +47,6 @@ const HospitalAdminSchema = new Schema<IHospitalAdmin>(
   },
 );
 
-const HospitalAdmin: Model<IHospitalAdmin> =
-  mongoose.models.HospitalAdmin ||
-  mongoose.model<IHospitalAdmin>("HospitalAdmin", HospitalAdminSchema);
+const HospitalAdmin =  mongoose.models.HospitalAdmin || mongoose.model("HospitalAdmin", HospitalAdminSchema);
 
 export default HospitalAdmin;

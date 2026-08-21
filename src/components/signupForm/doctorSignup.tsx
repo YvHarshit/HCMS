@@ -7,6 +7,7 @@ import { Eye, EyeOff } from "lucide-react";
 import { DoctorSignupData, doctorSignupSchema } from "@/validations/authData";
 import { Google } from "@mui/icons-material";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 
 export default function DoctorSignupForm() {  
    const router = useRouter()
@@ -29,29 +30,29 @@ export default function DoctorSignupForm() {
 
   const onSubmit = async (data: DoctorSignupData) => {
     console.log("Submitting Doctor Signup Data:", {data})
-    // try {
-    //    const { name, email, password, phone, passkey } = data
-    //    const response = await axios.post("http://localhost:3000/api/doctors", {name, email, password, phone, passkey})
+    try {
+       const { name, email, password, phone, specialization, qualification, experience, consultationFee } = data
+       const response = await axios.post("http://localhost:3000/api/auth/doctor/signup", {name, email, password, phone, specialization, qualification, experience, consultationFee})
 
-    //   if (response.data.success) {
-    //     console.log(response.data.message)
-    //     router.push("/login")
-    //   } else {
-    //     console.log("Something went wrong in Doctor Signup")
-    //   }
-    // } catch (error) {
+      if (response.data.success) {
+        console.log(response.data.message)
+        router.push("/login")
+      } else {
+        console.log("Something went wrong in Doctor Signup")
+      }
+    } catch (error) {
       
-    //   if (axios.isAxiosError(error)) {
+      if (axios.isAxiosError(error)) {
         
-    //     console.log(error.response?.data?.message || "Axios error occurred")
-    //   } else {
-    //     console.log("Something went wrong")
-    //   }
-    //   return NextResponse.json({ message: "This email is already registered." },
-    //     {status : 409 }
-    //   )
+        console.log(error.response?.data?.message || "Axios error occurred")
+      } else {
+        console.log("Something went wrong")
+      }
+      return Response.json({ message: "This email is already registered." },
+        {status : 409 }
+      )
 }
-  
+}
 
   return (
     <div className="rounded-xl border border-gray-200 bg-white px-8 py-10 shadow-sm">
@@ -163,7 +164,6 @@ export default function DoctorSignupForm() {
           </div>
           {errors.password && <p className="mt-1 text-xs text-red-500">{errors.password?.message}</p>}
         </div>
-
     </div>    
 
 
@@ -175,33 +175,23 @@ export default function DoctorSignupForm() {
         </button>
       </form>
 
-      <div>
-              <p className="text-center m-2"> Have an account ? {" "}
-                  <span className="text-blue-700 cursor-pointer  " 
-                  onClick={() =>  router.push('/login')}>  
-                     Log In here  </span></p>
-              </div>
-        
-              <div className="my-7 flex items-center gap-3">
-                <div className="h-px flex-1 bg-gray-300" />
-                <span className="text-sm text-gray-500"> Or continue with  </span>
-                <div className="h-px flex-1 bg-gray-300" />
-              </div>
-        
-              <div className="flex gap-3">
-                <button
-                  type="button"
-                  onClick={() => console.log("Login with Google")}
-                  className="flex py-[0.25rem] flex-1 items-center justify-center gap-2 rounded-md border border-gray-300 text-lg font-medium text-gray-700 hover:bg-blue-200 cursor-pointer"
-                >
-                  <span>
-                    <Google fontSize="large" />
-                  </span>
-                  Google
-                </button>
-              </div>
-
-              
+    <div>
+     <p className="text-center m-2"> Have an account ? {" "}
+         <span className="text-blue-700 cursor-pointer" 
+         onClick={() =>  router.push('/login')}>  
+            Log In here  </span></p>
+     </div>
+     <div className="my-7 flex items-center gap-3">
+       <div className="h-px flex-1 bg-gray-300" />
+       <span className="text-sm text-gray-500"> Or continue with  </span>
+       <div className="h-px flex-1 bg-gray-300" />
+     </div>
+     <div className="flex gap-3">
+       <button type="button" onClick={() => console.log("Login with Google")}
+         className="flex py-[0.25rem] flex-1 items-center justify-center gap-2 rounded-md border border-gray-300 text-lg font-medium text-gray-700 hover:bg-blue-200 cursor-pointer">
+         <span>
+           <Google fontSize="large" /> </span> Google </button>
+     </div>             
     </div>
   )
 }

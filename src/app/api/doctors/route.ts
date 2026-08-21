@@ -1,14 +1,12 @@
-import { createDoctorController, getDoctorsController } from "@/app/controllers/doctor.controller";
 import { NextResponse } from "next/server";
-import { authCheck } from "@/lib/authCheck";
 import { getAllDoctors } from "@/app/repositories/doctor.repository";
 
 export async function GET() {
   try {
     // const user = await authCheck();
-    // // User is authenticated
+    
     // console.log("Logged in user:", user);
-    // Your API logic here
+   
      const doctors = await getAllDoctors();
     // console.log(doctors)
     return NextResponse.json({
@@ -17,7 +15,12 @@ export async function GET() {
       doctors
     });
 
-  } catch (error) {
+  } catch (error : unknown ) {
+    if(error instanceof Error) {
+      console.log("Error Message : ", error.message)
+      console.log("Error Stack : ", error.stack)
+    }
+    else console.log("Un-expected Error : ", error)
 
     return NextResponse.json(
       {
@@ -26,13 +29,9 @@ export async function GET() {
       },
       { status: 401 }
     );
-
   }
 }
 
 
 
 
-export async function POST(req: Request) {
-  return createDoctorController(req);
-}

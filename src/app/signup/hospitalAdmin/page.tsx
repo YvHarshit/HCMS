@@ -1,6 +1,6 @@
 "use client";
 
-import HospitalAdminSignupForm from "@/components/authRegister/hospAdminSignup";
+import HospitalAdminSignupForm from "@/components/signupForm/hospAdminSignup";
 import AuthSideImage from "@/shared/authSharedImg";
 import { LocalHospital } from "@mui/icons-material";
 

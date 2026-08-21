@@ -22,13 +22,11 @@ export async function createDoctor(doctorData: CreateDoctorData) {
 
 export async function getDoctorByIdRepository(id: string) {
   await connectDB();
-
   return Doctor.findById(id).select("-password");
 }
 
 export async function updateDoctorStatusRepository(id: string, status: "approved" | "rejected") {
   await connectDB();
-
   return Doctor.findByIdAndUpdate(id, {status },
     {
       new: true,

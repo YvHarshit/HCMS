@@ -1,4 +1,3 @@
-// src/app/types/appointment.types.ts
 
 export interface CreateAppointmentData {
   doctorId: string;
@@ -6,3 +5,6 @@ export interface CreateAppointmentData {
   appointmentDate: Date;
   appointmentTime: string;
 }
+
+
+export type AppointmentStatus = "confirmed" | "completed" | "cancelled";

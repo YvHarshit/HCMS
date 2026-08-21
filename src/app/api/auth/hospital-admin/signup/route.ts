@@ -9,6 +9,7 @@ export function GET() {
 }
 
 
-export function POST(req : Request) {
-  return createHospitalAdminController(req) ;
+
+export async function POST(req: Request) {
+  return await createHospitalAdminController(req);
 }

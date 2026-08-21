@@ -1,23 +1,6 @@
-import mongoose, { Schema, Document, Model } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
-export interface IPatient extends Document {
-  name: string;
-  email: string;
-  password: string;
-  phone: string;
-
-  dateOfBirth?: Date;
-  gender?: "male" | "female" | "other";
-
-  address?: string;
-
-  role: string;
-
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-const PatientSchema = new Schema<IPatient>(
+const PatientSchema = new Schema(
   {
     name: {
       type: String,
@@ -70,7 +53,6 @@ const PatientSchema = new Schema<IPatient>(
   },
 );
 
-const Patient: Model<IPatient> =
-  mongoose.models.Patient || mongoose.model<IPatient>("Patient", PatientSchema);
+const Patient =  mongoose.models.Patient || mongoose.model("Patient", PatientSchema);
 
 export default Patient;

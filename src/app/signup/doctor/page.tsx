@@ -1,6 +1,6 @@
 "use client";
 
-import DoctorSignupForm from "@/components/authRegister/doctorSignup";
+import DoctorSignupForm from "@/components/signupForm/doctorSignup";
 import AuthSideImage from "@/shared/authSharedImg";
 import { LocalHospital } from "@mui/icons-material";
 

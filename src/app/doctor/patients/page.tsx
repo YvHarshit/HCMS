@@ -2,7 +2,7 @@
 export default function Patients() {
     return (
         <div>
-            Patients
+            Patients List
         </div>
     )
 }

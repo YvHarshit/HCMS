@@ -14,11 +14,6 @@ export default function DoctorPage() {
           <span className="text-4xl font-bold"> Good Morning Dr. Harshit </span>
           <span> You have <span className="text-blue-600 text-lg font-semibold"> 12 appointments </span> today. </span>
         </div>
-
-        {/* <div className="flex flex-col gap-2">
-          <span className="text-gray-700 text-xl font-semibold ml-auto"> TODAY'S DATE </span>
-          <span className="text-3xl font-semibold">  Thursday  06.08.2026 </span>
-        </div> */}
       </div>
 
       <InfoCards />

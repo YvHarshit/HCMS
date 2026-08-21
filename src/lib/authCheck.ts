@@ -12,7 +12,6 @@ export async function authCheck() {
 
   try {
     const user = verifyToken(token);
-
     return user;
   } catch {
     throw new Error("Invalid or expired token");

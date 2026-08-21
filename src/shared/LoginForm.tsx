@@ -113,7 +113,7 @@ export default function LoginForm({ onLogin }: LoginFormProps) {
       </form>
 
       <div>
-         <p className="text-center m-2"> Don't have an account ? {" "}
+         <p className="text-center m-2"> Do not have an account ?
           <span className="text-blue-700 cursor-pointer  " 
           onClick={() => {
             if(role === 'doctor')

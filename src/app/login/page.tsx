@@ -26,7 +26,7 @@ export default function Login() {
         endpoint = "http://localhost:3000/api/auth/doctor/login";
         redirectPath = "/doctor";
       } else if (role === "hospitalAdmin") {
-        endpoint = "http://localhost:3000/api/auth/hospitalAdmin/login";
+        endpoint = "http://localhost:3000/api/auth/hospital-admin/login";
         redirectPath = "/hospitalAdmin"; 
       }
 

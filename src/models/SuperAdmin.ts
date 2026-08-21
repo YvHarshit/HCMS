@@ -1,17 +1,7 @@
-import mongoose, { Document, Model, Schema } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 
-export interface ISuperAdmin extends Document {
-  name: string;
-  email: string;
-  password: string;
 
-  role: string;
-
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-const SuperAdminSchema = new Schema<ISuperAdmin>(
+const SuperAdminSchema = new Schema(
   {
     name: {
       type: String,
@@ -44,8 +34,6 @@ const SuperAdminSchema = new Schema<ISuperAdmin>(
   },
 );
 
-const SuperAdmin: Model<ISuperAdmin> =
-  mongoose.models.SuperAdmin ||
-  mongoose.model<ISuperAdmin>("SuperAdmin", SuperAdminSchema);
+const SuperAdmin = mongoose.models.SuperAdmin || mongoose.model("SuperAdmin", SuperAdminSchema);
 
 export default SuperAdmin;

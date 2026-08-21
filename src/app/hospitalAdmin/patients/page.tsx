@@ -1,18 +1,8 @@
 
 "use client";
 
+import { Patient } from "@/app/types/patient.types";
 import { useEffect, useState } from "react";
-
-interface Patient {
-  _id: string;
-  name: string;
-  email: string;
-  phone: string;
-  dateOfBirth?: string;
-  gender?: string;
-  address?: string;
-  role: string;
-}
 
 export default function Patients() {
   const [patients, setPatients] = useState<Patient[]>([]);

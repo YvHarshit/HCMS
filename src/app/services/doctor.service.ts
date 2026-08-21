@@ -8,15 +8,10 @@ export async function getDoctors() {
 }
 
 
-
-
 export async function registerDoctor(data: CreateDoctorData) {
  
   const existingDoctor = await findDoctorByEmail(data.email);
 
-  // if (existingDoctor) {
-  //   throw new Error("Doctor with this email already exists");
-  // }
    if (existingDoctor) {
     return Response.json(
       { message: 'Email is already taken' },
@@ -34,21 +29,17 @@ export async function registerDoctor(data: CreateDoctorData) {
 
   const doctorObject = doctor.toObject();
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { password, ...doctorWithoutPassword } = doctorObject;
 
   return doctorWithoutPassword;
 }
 
 
-// if (role === p)
-
-
-
 
 
 export async function getDoctorById(id: string) {
   const doctor = await getDoctorByIdRepository(id);
-
   return doctor;
 }
 
@@ -57,4 +48,26 @@ export async function getDoctorById(id: string) {
 
 export async function updateDoctorStatus(id: string, status: "approved" | "rejected") {
   return updateDoctorStatusRepository(id, status);
+}
+
+
+export async function loginDoctor(email: string, password: string) {
+  try {
+    const doctor = await findDoctorByEmail(email.toLowerCase());
+
+  if (!doctor) {
+    throw new Error("Invalid email or password");
+  }
+
+  const isPasswordValid = await bcrypt.compare(password, doctor.password);
+
+  if (!isPasswordValid) {
+    throw new Error("Invalid password");
+  }
+
+  return doctor;
+} catch (error) {
+    console.error("Error logging in hospital admin:", error);
+    throw error;
+  }
 }

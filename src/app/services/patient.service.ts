@@ -27,9 +27,9 @@ export async function registerPatient(data: CreatePatientData) {
     password: hashedPassword,
   });
 
-  // Don't return password
   const patientObject = patient.toObject();
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { password, ...patientWithoutPassword } = patientObject;
 
   return patientWithoutPassword;
@@ -41,4 +41,28 @@ export async function getPatientById(id: string) {
   const patient = await getPatientByIdRepository(id);
 
   return patient;
+}
+
+
+
+
+export async function loginPatient(email: string, password: string) {
+  try {
+    const patient = await findPatientByEmail(email.toLowerCase());
+
+  if (!patient) {
+    throw new Error("Invalid email or password");
+  }
+
+  const isPasswordValid = await bcrypt.compare(password, patient.password);
+
+  if (!isPasswordValid) {
+    throw new Error("Invalid password");
+  }
+
+  return patient;
+} catch (error) {
+    console.error("Error logging in hospital admin:", error);
+    throw error;
+  }
 }

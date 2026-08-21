@@ -1,32 +1,6 @@
-import mongoose, { Schema, Document, Model } from "mongoose";
+import mongoose from "mongoose";
 
-export interface IDoctor extends Document {
-  name: string;
-  email: string;
-  password: string;
-  phone: string;
-
-  // hospitalId?: mongoose.Types.ObjectId;
-
-  specialization: string;
-  qualification: string;
-  experience: number;
-
-  consultationFee: number;
-
-  rating: number;
-  totalReviews: number;
-
-  role: string;
-
-  //isApproved: boolean;
-  status: "pending" | "approved" | "rejected";
-
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-const DoctorSchema = new Schema<IDoctor>(
+const DoctorSchema = new mongoose.Schema(
   {
     name: {
       type: String,
@@ -117,7 +91,6 @@ const DoctorSchema = new Schema<IDoctor>(
   },
 );
 
-const Doctor: Model<IDoctor> =
-  mongoose.models.Doctor || mongoose.model<IDoctor>("Doctor", DoctorSchema);
+const Doctor= mongoose.models.Doctor || mongoose.model("Doctor", DoctorSchema);
 
 export default Doctor;

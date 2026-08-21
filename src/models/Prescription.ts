@@ -1,123 +1,93 @@
-import mongoose, { Document, Model, Schema } from "mongoose";
+// import mongoose, { Schema } from "mongoose";
 
-export interface IMedicineTracking {
-  date: Date;
-  scheduleTime: string;
-  status: "taken" | "missed";
-}
 
-export interface IMedicine {
-  name: string;
-  dosage: string;
-  frequency: string;
-  duration: string;
+// const PrescriptionSchema = new Schema(
+//   {
+//     doctorId: {
+//       type: Schema.Types.ObjectId,
+//       ref: "Doctor",
+//       required: true,
+//     },
 
-  tracking?: IMedicineTracking[];
-}
+//     patientId: {
+//       type: Schema.Types.ObjectId,
+//       ref: "Patient",
+//       required: true,
+//     },
 
-export interface IPrescription extends Document {
-  doctorId: mongoose.Types.ObjectId;
-  patientId: mongoose.Types.ObjectId;
-  appointmentId: mongoose.Types.ObjectId;
+//     appointmentId: {
+//       type: Schema.Types.ObjectId,
+//       ref: "Appointment",
+//       required: true,
+//     },
 
-  diagnosis?: string;
+//     diagnosis: {
+//       type: String,
+//       trim: true,
+//     },
 
-  medicines: IMedicine[];
+//     medicines: [
+//       {
+//         name: {
+//           type: String,
+//           required: true,
+//           trim: true,
+//         },
 
-  notes?: string;
-  followUpDate?: Date;
+//         dosage: {
+//           type: String,
+//           required: true,
+//           trim: true,
+//         },
 
-  createdAt: Date;
-  updatedAt: Date;
-}
+//         frequency: {
+//           type: String,
+//           required: true,
+//           trim: true,
+//         },
 
-const PrescriptionSchema = new Schema<IPrescription>(
-  {
-    doctorId: {
-      type: Schema.Types.ObjectId,
-      ref: "Doctor",
-      required: true,
-    },
+//         duration: {
+//           type: String,
+//           required: true,
+//           trim: true,
+//         },
 
-    patientId: {
-      type: Schema.Types.ObjectId,
-      ref: "Patient",
-      required: true,
-    },
+//         tracking: [
+//           {
+//             date: {
+//               type: Date,
+//               required: true,
+//             },
 
-    appointmentId: {
-      type: Schema.Types.ObjectId,
-      ref: "Appointment",
-      required: true,
-    },
+//             scheduleTime: {
+//               type: String,
+//               required: true,
+//             },
 
-    diagnosis: {
-      type: String,
-      trim: true,
-    },
+//             status: {
+//               type: String,
+//               enum: ["taken", "missed"],
+//               required: true,
+//             },
+//           },
+//         ],
+//       },
+//     ],
 
-    medicines: [
-      {
-        name: {
-          type: String,
-          required: true,
-          trim: true,
-        },
+//     notes: {
+//       type: String,
+//       trim: true,
+//     },
 
-        dosage: {
-          type: String,
-          required: true,
-          trim: true,
-        },
+//     followUpDate: {
+//       type: Date,
+//     },
+//   },
+//   {
+//     timestamps: true,
+//   }
+// );
 
-        frequency: {
-          type: String,
-          required: true,
-          trim: true,
-        },
+// const Prescription = mongoose.models.Prescription || mongoose.model("Prescription", PrescriptionSchema);
 
-        duration: {
-          type: String,
-          required: true,
-          trim: true,
-        },
-
-        tracking: [
-          {
-            date: {
-              type: Date,
-              required: true,
-            },
-
-            scheduleTime: {
-              type: String,
-              required: true,
-            },
-
-            status: {
-              type: String,
-              enum: ["taken", "missed"],
-              required: true,
-            },
-          },
-        ],
-      },
-    ],
-
-    notes: {
-      type: String,
-      trim: true,
-    },
-
-    followUpDate: {
-      type: Date,
-    },
-  },
-  {
-    timestamps: true,
-  }
-);
-
-const Prescription: Model<IPrescription> =  mongoose.models.Prescription ||  mongoose.model<IPrescription>("Prescription", PrescriptionSchema);
-
-export default Prescription;
+// export default Prescription;
